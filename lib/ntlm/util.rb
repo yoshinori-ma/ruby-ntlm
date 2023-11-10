@@ -58,6 +58,7 @@ module NTLM
       keys.each do |k|
         cipher.encrypt
         cipher.key = k
+        cipher.iv = "\x00" * 8
 
         encrypted_text = cipher.update(plain_text)
         encrypted_text << cipher.final
